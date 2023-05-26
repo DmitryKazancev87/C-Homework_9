@@ -1,7 +1,7 @@
 ﻿// 25. Программа, которая находит сумму натуральных элементов в промежутке от M до N
 // с помощью рекурсии.
 
-void Sum (int M, int N)
+int Sum (int M, int N) // вводим функцию Sum нахождения суммы чисел
 {
     int result=M;
     if (M==N)
@@ -9,12 +9,19 @@ void Sum (int M, int N)
     else 
     {
         M++;
-        result=M+Sum(M,N);
+        result= M + Sum(M,N);
         return result;
     }
-    Console.Write($"{result} ");
-    Sum(M,N);
+    
 }
-int N=8;     
-int M=1;
-Sum(M,N);
+System.Console.WriteLine("Введите число M: ");
+int M=Convert.ToInt32(Console.ReadLine());
+System.Console.WriteLine("Введите число N: ");
+int N=Convert.ToInt32(Console.ReadLine());     
+
+
+void SumFromMToN (int M, int N)
+{
+    Console.Write($"Сумма натуральных чисел от {M} до {N} равна: " + Sum(M-1,N));
+}
+SumFromMToN(M,N);
